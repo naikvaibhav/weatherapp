@@ -1,12 +1,13 @@
-<div class="container pb-4">
-
+<div class="page"></div>
+<div class="container pb-3 pr-5 pl-5">
+<br>
   <div class="row" style="text-align:left">
     <div class="col-md-12">
       <form #checkWeather="ngForm">
         <div class="form-group">
 
 
-          <label>Enter your pincode</label>
+          <label style="color: #fff">Enter your pincode</label>
           <input type="text" [(ngModel)]="pinCode" name="pinCode" #title="ngModel" class="form-control"
             placeholder="For Ex: 581301" required>
 
@@ -20,9 +21,11 @@
   </div>
 </div>
 
-
+<div class="container pr-2 pl-2">
+  <div class="row">
+    <div class="col">
+<div class="row">
 <div class="col" *ngFor="let native of pincodeWeather">
-  <br>
   <div class="card" style="width:19rem;margin:0 auto;">
 
     <div class="card-body">
@@ -35,6 +38,8 @@
         <br>
 
         Feels like: {{native.app_temp}}°C <br>
+        Current Date: {{native.datetime|slice:0:-3|date: 'dd/MM/yyyy'}}<br>
+        Weather observed at: {{native.ob_time|date:'medium'}} <br>
         Humidity : {{native.rh}}%<br>
         Cloud coverage : {{native.clouds}}%<br>
         Part of the day(d=day / n=night) : {{native.pod}}<br>
@@ -43,8 +48,13 @@
       <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">In detail info</a>
     </div>
   </div>
+  <br>
 </div>
-<br>
+</div>
+</div>
+</div>
+</div>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
