@@ -1,0 +1,18 @@
+.header{
+     /*background-color:#FFEB3B;*/
+  /*background: linear-gradient(to right, #2980b9, #6dd5fa, #ffffff);*/
+  /*background: linear-gradient(to right, #373b44, #4286f4);*/
+  background: #00766c;
+  padding: 1%;
+}
+
+.navbar-custom{
+    background:#26a69a
+    
+}
+
+
+
+.btn{
+    background: green;
+}

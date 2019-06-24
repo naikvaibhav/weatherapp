@@ -1,0 +1,94 @@
+<div class="container-fluid pb-4">
+  <div class="row">
+    <div class="col" *ngFor="let native of nativeWeather">
+      <br>
+      <div class="card" style="width:19rem;margin:0 auto;">
+        <img class="card-img-top" src="assets/img/karwar.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Current weather in {{native.city_name}}</h5>
+          <p class="card-text">
+
+            Current temp: {{native.temp}}°C<br>
+            {{native.weather.description}} <img src="{{'assets/img/icons/' + native.weather.icon + '.png'}}">
+            <!--<img [src]="'assets/img/icons/' + native.weather.icon + '.png'">-->
+            <br>
+
+            Feels like: {{native.app_temp}}°C <br>
+            <!--Current Time: {{this.time}}<br>-->
+            Humidity : {{native.rh}}%<br>
+            Cloud coverage : {{native.clouds}}%<br>
+            Part of the day(d=day / n=night) : {{native.pod}}<br>
+            Air Quality Index[US - EPA standard 0 - +500] : {{native.aqi}}
+          </p>
+          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">In detail info</a>
+        </div>
+      </div>
+    </div>
+    <!--<div class="col">
+      <br>
+        <div class="card" style="width:19rem;margin:0 auto;">
+            <div class="card-body">
+              <h5 class="card-title">Wanna check weather of your desired cities</h5>
+              <p class="card-text">
+                  Check whether of different cities around the global by just entering city name.. thats it
+              </p>
+              <a [routerLink]="['/city']" class="btn btn-primary">Lets check</a>
+            </div>
+          </div>
+          <br>
+          <div class="card" style="width:19rem;margin:0 auto;">
+              <div class="card-body">
+                <h5 class="card-title">Wanna check weather of your desired location through pincode</h5>
+                <p class="card-text">
+                    Check whether of different cities around the global by just entering area pincode.. thats it
+                 
+</p>
+                <a [routerLink]="['/city']" class="btn btn-primary">Lets check</a>
+              </div>
+            </div>
+    </div>-->
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detailed weather info </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="col" *ngFor="let native of nativeWeather">
+
+
+          <p>Latitude : {{native.lat}}°</p>
+          <p>Longitude : {{native.lon}}°</p>
+          <p>Sunrise time : {{native.sunrise}}</p>
+          <p>Sunset time : {{native.sunset}}</p>
+          <p>Local IANA timezone : {{native.timezone}}</p>
+          <p>Country code : {{native.country_code}}</p>
+          <p>Wind speed : {{native.wind_spd}} m/s</p>
+          <p>Wind direction : {{native.wind_dir}}°</p>
+          <p>Abbreviated wind direction : {{native.wind_cdir}}</p>
+          <p>Verbal wind direction : {{native.wind_cdir_full}}</p>
+          <p>Visibility : {{native.vis}}Km</p>
+          <p>UV index(0-11+) : {{native.uv}}</p>
+          <p>Precipitation rate : {{native.precip}}mm/hr</p>
+          <p>Solar elevation angle : {{native.elev_angle}}°</p>
+          <p>Sea level pressure : {{native.slp}}mb</p>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
